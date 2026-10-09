@@ -1,0 +1,21 @@
+\section{Introduction}
+\label{sec:intro}
+
+Cardiovascular diseases are the leading cause of death worldwide, accounting for an estimated 19.8 million deaths in 2022, about 32\% of all deaths~\cite{who_cvd}. The 12-lead ECG is the first-line test for many of them: myocardial infarction (MI), ischaemic ST/T changes, conduction disturbances and hypertrophy all leave characteristic traces in the twelve projections of the heart's electrical activity. Deep neural networks now read 12-lead ECGs at a level comparable to cardiologists for many diagnostic statements~\cite{ribeiro2020automatic,strodthoff2021benchmark}, and single-lead networks detect rhythm disorders in ambulatory recordings~\cite{hannun2019cardiologist}.
+
+At the same time, ECG acquisition is moving out of the clinic. Consumer smartwatches record a single limb lead between the wrist and the opposite fingertip, and large studies have shown that wearables can flag atrial fibrillation in the general population~\cite{perez2019apple}. Rhythm, however, is the easy case: it can be read from the timing of beats in any lead. Most structural and ischaemic diagnoses depend on the spatial information that the full 12-lead system provides, and it is unclear how much of it a single lead retains. This matters in practice. If a wearable could reliably screen for some diagnoses, it could decide who needs a full 12-lead ECG; if it cannot, an apparently high average accuracy could give false reassurance.
+
+Published comparisons usually report one averaged metric per lead configuration. An averaged AUROC hides two questions that matter for screening: \emph{which} diagnoses survive lead reduction, and whether the surviving performance is good enough at a clinically useful operating point. We therefore framed lead reduction as a replaceability question with a criterion defined before any reduced-lead result was seen, and applied it to every diagnosis and lead configuration. We addressed three research questions:
+
+\begin{description}
+  \item[RQ1] Which architecture and baseline perform best on the 12-lead ECG, and how large is the gap to traditional methods?
+  \item[RQ2] How much diagnostic performance is lost as leads are removed, down to a smartwatch-like lead I, and which diagnoses can a reduced lead set still screen for? Can training strategies recover the loss?
+  \item[RQ3] How do reduced-lead models behave for normal-versus-abnormal triage, under noise, with fewer labels, with self-supervised pre-training, and on data from another hospital?
+\end{description}
+
+Our contributions are:
+\begin{enumerate}
+  \item A \textbf{pre-specified replaceability criterion} (non-inferior AUROC plus sensitivity at 90\% specificity), applied per diagnosis and per lead configuration, which yields a conclusion matrix rather than a single averaged score (\cref{fig:conclusion}).
+  \item \textbf{LA-ResNet}, a lead-agnostic model trained with lead masks that serves all six lead configurations with one set of weights, together with a quantification of its cost relative to dedicated models.
+  \item A \textbf{complete wearable evidence chain} under one protocol: diagnosis, triage, noise robustness, label efficiency including self-supervised pre-training, and external validation on 34,815 records from a different hospital.
+\end{enumerate}

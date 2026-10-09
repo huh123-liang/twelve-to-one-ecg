@@ -1,0 +1,10 @@
+{
+  "model": "b1-logreg",
+  "leads": "leadI",
+  "task": "t2",
+  "seed": 0,
+  "cache": "data/cache",
+  "sr": 100,
+  "strategy": "B_baseline",
+  "variant": "b1-logreg"
+}

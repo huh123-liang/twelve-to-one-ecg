@@ -1,0 +1,95 @@
+snomed_code,record_count,mapped_class,name
+426177001,16559,NORM,Sinus Bradycardia
+426783006,8125,NORM,Sinus Rhythm
+164890007,8060,excluded_other,Atrial Flutter
+427084000,7255,NORM,Sinus Tachycardia
+164934002,7043,STTC,T wave Change
+55827005,5401,HYP,
+55930002,4232,STTC,
+59931005,2877,STTC,T wave opposite
+427393009,2550,NORM,Sinus Irregularity
+164889003,1780,excluded_other,Atrial Fibrillation
+429622005,1668,STTC,ST drop down
+39732003,1545,excluded_other,Axis left shift
+284470004,1312,excluded_other,atrial premature beats
+10370003,1182,excluded_other,
+428750005,1158,STTC,ST-T Change
+270492004,1140,CD,1 degree atrioventricular block
+713427006,1096,CD,
+427172004,1091,excluded_other,
+164917005,1063,excluded_other,abnormal Q wave
+251146004,1043,excluded_other,lower voltage QRS in all lead
+47665007,853,excluded_other,Axis right shift
+164930006,801,STTC,ST extension
+698252002,771,CD,Interior differences conduction; Intraventricular block
+426761007,724,excluded_other,Supraventricular Tachycardia
+61721007,653,excluded_other,
+59118001,649,CD,right bundle branch block
+164873001,647,HYP,left ventricle hypertrophy
+365413008,638,excluded_other,
+111975006,394,STTC,QT interval extension
+6374002,385,CD,
+445118002,380,CD,
+428417006,366,excluded_other,Early repolarization of the ventricles
+713422000,297,excluded_other,Atrial Tachycardia
+17338001,294,excluded_other,ventricular premature beat
+713426002,246,CD,
+233917008,244,CD,atrioventricular block
+164909002,240,CD,left back bundle branch block; left bundle branch block; left front bundle branch block
+106068003,215,excluded_other,
+251223006,215,excluded_other,
+733534002,213,CD,
+164931005,176,STTC,ST tilt up
+251199005,162,excluded_other,countercolockwise rotation
+164912004,142,excluded_other,P wave Change
+29320008,139,excluded_other,
+164937009,136,excluded_other,U wave
+164865005,123,MI,Myocardial infgraction in the front wall; Myocardial infraction in the lower wall; Myocardial infraction in the side wall; myocardial infarction; myocardial infraction in back wall
+13640000,116,excluded_other,ventricular fusion wave
+89792004,110,HYP,right ventricle hypertrophy
+425856008,109,excluded_other,
+251205003,106,excluded_other,
+81898007,96,excluded_other,
+251198002,76,excluded_other,colockwise rotation
+27885002,76,CD,3 degree atrioventricular block
+426995002,75,excluded_other,junctional escape beat
+74390002,72,CD,WPW
+195042002,66,CD,2 degree atrioventricular block
+251170000,62,excluded_other,
+164896001,59,excluded_other,
+50799005,59,excluded_other,
+54329005,57,MI,
+75532003,56,excluded_other,ventricular escape beat
+164947007,52,CD,PR interval extension
+57054005,49,MI,
+446358003,36,HYP,right atrial hypertrophy
+67751000119106,36,excluded_other,
+5609005,33,excluded_other,
+54016002,31,CD,2 degree atrioventricular block(Type one)
+233897008,26,excluded_other,Atrioventricular Reentrant Tachycardia
+426648003,24,excluded_other,
+49578007,23,excluded_other,
+251187003,17,excluded_other,
+233892002,16,excluded_other,
+251166008,16,excluded_other,
+61277005,14,excluded_other,
+195060002,12,CD,ventricular preexcitation
+426664006,12,excluded_other,
+251164006,11,excluded_other,junctional premature beat
+63593006,9,excluded_other,
+251180001,8,excluded_other,ventricular escape trigeminy
+446813000,8,HYP,
+111288001,7,excluded_other,
+17366009,7,excluded_other,
+426183003,7,excluded_other,
+426627000,7,excluded_other,
+251120003,6,CD,
+418818005,5,excluded_other,
+445211001,5,CD,
+65778007,5,excluded_other,
+11157007,3,excluded_other,ventricular bigeminy
+164942001,3,excluded_other,fQRS Wave
+251173003,3,excluded_other,atrial bigeminy
+195101003,2,excluded_other,Sinus Atrium to Atrial Wandering Rhythm; Wandering in the atrioventricalualr node
+77867006,2,excluded_other,
+67741000119109,1,HYP,

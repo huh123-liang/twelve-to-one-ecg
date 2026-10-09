@@ -1,0 +1,8 @@
+{
+  "best_val_mse": 0.1854690469641721,
+  "zero_prediction_mse": 0.8907767890328463,
+  "ratio_to_zero": 0.20821046220293146,
+  "best_epoch": 96,
+  "epochs_run": 100,
+  "train_time_s": 1344.3598895072937
+}

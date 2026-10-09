@@ -1,0 +1,53 @@
+{
+  "macro_auroc": 0.9349409337951621,
+  "macro_auprc": 0.9579599952415004,
+  "macro_f1": 0.866902237926973,
+  "macro_sens_at_spec90": 0.8242375601926164,
+  "ece": 0.09012591180092101,
+  "ece_temp_scaled": 0.07995450016943198,
+  "brier": 0.11475364863872528,
+  "temperature": 1.377326197336942,
+  "thresholds": [
+    0.19
+  ],
+  "per_class": {
+    "ABNORMAL": {
+      "auroc": 0.9349409337951621,
+      "auprc": 0.9579599952415004,
+      "f1": 0.866902237926973,
+      "sens_at_spec90": 0.8242375601926164,
+      "tp": 1104,
+      "fp": 197,
+      "fn": 142,
+      "tn": 715,
+      "sensitivity": 0.8860353130016051,
+      "specificity": 0.7839912280701754,
+      "ppv": 0.8485780169100692,
+      "npv": 0.8343057176196033
+    }
+  },
+  "macro_auroc_ci95": [
+    0.9255310740692041,
+    0.944420823482409
+  ],
+  "run": "resnet1d_12lead_t2_frac1_seed1",
+  "model": "resnet1d",
+  "variant": "resnet1d",
+  "strategy": "S1_scratch",
+  "task": "t2",
+  "leads": "12lead",
+  "seed": 1,
+  "train_fraction": 1.0,
+  "n_train": 17084,
+  "n_params": 4082305,
+  "best_val_macro_auroc": 0.9436960058541022,
+  "epochs_run": 21,
+  "train_time_s": 180.94283246994019,
+  "checkpoint_run": "resnet1d_12lead_t2_frac1_seed1",
+  "noise_robustness": {
+    "20dB": 0.9346654909746276,
+    "10dB": 0.9319559432288587,
+    "5dB": 0.9244221860831855,
+    "0dB": 0.9092244304581679
+  }
+}

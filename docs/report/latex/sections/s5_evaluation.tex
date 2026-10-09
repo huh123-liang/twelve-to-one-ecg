@@ -1,0 +1,17 @@
+\section{Evaluation Protocol}
+\label{sec:eval}
+
+\paragraph{Metrics.} The primary metric is macro AUROC on the test fold, because it is threshold-free and comparable across classes with different prevalence. Because AUROC alone can hide poor performance at clinically useful operating points, we also report AUPRC; sensitivity at 90\% specificity (\sensninety, the operating point of the success criterion); F1, PPV and NPV at per-class thresholds tuned on the validation fold; the Brier score; and the expected calibration error (ECE, 15 bins) before and after temperature scaling fitted on the validation fold~\cite{guo2017calibration}.
+
+\paragraph{Pre-specified success criterion.} Before any reduced-lead result was seen, we defined when a reduced configuration can \emph{screen} for a diagnosis in place of the 12-lead reference:
+\begin{enumerate}
+  \item \emph{non-inferior discrimination}: the lower bound of the paired-bootstrap 95\% confidence interval of $\Delta$AUROC (reduced $-$ 12-lead) is at least $-0.02$; and
+  \item \emph{useful operating point}: \sensninety\ $\geq 0.80$.
+\end{enumerate}
+A cell meeting both conditions is \emph{screen}, one of the two \emph{conditional}, and neither \emph{not replaceable}. The reference is the 12-lead model of the same architecture family trained from scratch (ResNet1d for LA-ResNet and S2). The margin was varied to 0.01 and 0.03 as a sensitivity analysis. The \emph{primary approach} shown in the conclusion matrix was chosen on the validation fold only: among approaches covering all five reduced configurations, the one with the highest mean validation macro AUROC.
+
+\paragraph{Uncertainty and statistical tests.} Predicted probabilities of the three seeds were averaged (seed ensemble) before computing conclusion-matrix and paired-test statistics; across-seed mean $\pm$ SD is reported for single models. Confidence intervals come from 1,000 record-level bootstrap resamples of the test fold~\cite{efron1993bootstrap}. Paired comparisons use the same resamples for both models and a two-sided bootstrap $p$-value; with 1,000 resamples, $p<0.001$ is the resolution limit. The 29 paired comparisons of architectures, lead sets and strategies were adjusted together with the Holm method~\cite{holm1979}, and we use ``significant'' only for Holm-adjusted $p<0.05$.
+
+\paragraph{Robustness, subgroups and interpretability.} At test time we added white Gaussian noise to the raw signal at signal-to-noise ratios of 20, 10, 5 and 0\,dB. We report AUROC by sex and age group ($<$50, 50--70, $>$70 years) as descriptive estimates, seed and heterogeneous ensembles, and an inter-model disagreement analysis. Grad-CAM~\cite{selvaraju2017gradcam} was computed for ResNet1d and LA-ResNet and, for ECG-ViT, on the input of the last Transformer block, together with its attention matrix.
+
+\paragraph{Leakage control and reproducibility.} Splits follow the official patient-level folds. The standardiser, decision thresholds, temperature, early stopping and the choice of primary approach use the training or validation folds only; nothing was tuned on the test fold or the external cohort. All runs are reproducible from the released scripts, and a CPU regression test on synthetic data had to give a bit-identical result before and after every code change.

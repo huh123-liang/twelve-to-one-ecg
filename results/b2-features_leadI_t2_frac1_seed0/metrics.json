@@ -1,0 +1,46 @@
+{
+  "macro_auroc": 0.7718937441919405,
+  "macro_auprc": 0.8218955574248666,
+  "macro_f1": 0.7504690431519699,
+  "macro_sens_at_spec90": 0.507223113964687,
+  "ece": 0.05045439326382228,
+  "ece_temp_scaled": 0.054376924676688566,
+  "brier": 0.19256301783826651,
+  "temperature": 1.0630987689755045,
+  "thresholds": [
+    0.4499999999999999
+  ],
+  "per_class": {
+    "ABNORMAL": {
+      "auroc": 0.7718937441919405,
+      "auprc": 0.8218955574248666,
+      "f1": 0.7504690431519699,
+      "sens_at_spec90": 0.507223113964687,
+      "tp": 1000,
+      "fp": 419,
+      "fn": 246,
+      "tn": 493,
+      "sensitivity": 0.8025682182985554,
+      "specificity": 0.5405701754385965,
+      "ppv": 0.704721634954193,
+      "npv": 0.6671177266576455
+    }
+  },
+  "macro_auroc_ci95": [
+    0.7529230969657038,
+    0.7911699928971166
+  ],
+  "run": "b2-features_leadI_t2_frac1_seed0",
+  "model": "b2-features",
+  "variant": "b2-features",
+  "strategy": "B_baseline",
+  "task": "t2",
+  "leads": "leadI",
+  "seed": 0,
+  "train_fraction": 1.0,
+  "n_train": 17084,
+  "n_params": 23,
+  "epochs_run": 0,
+  "train_time_s": 2.3304696083068848,
+  "noise_robustness": {}
+}

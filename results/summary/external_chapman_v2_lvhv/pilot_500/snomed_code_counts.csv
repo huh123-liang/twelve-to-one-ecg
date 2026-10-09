@@ -1,0 +1,32 @@
+snomed_code,record_count,mapped_class,name
+426177001,251,NORM,Sinus Bradycardia
+164889003,90,excluded_other,Atrial Fibrillation
+164934002,81,STTC,T wave Change
+55827005,74,HYP,
+426783006,69,NORM,Sinus Rhythm
+427084000,63,NORM,Sinus Tachycardia
+428750005,50,STTC,ST-T Change
+164890007,27,excluded_other,Atrial Flutter
+59118001,23,CD,right bundle branch block
+17338001,20,excluded_other,ventricular premature beat
+270492004,20,CD,1 degree atrioventricular block
+429622005,19,STTC,ST drop down
+39732003,16,excluded_other,Axis left shift
+698252002,15,CD,Interior differences conduction; Intraventricular block
+284470004,13,excluded_other,atrial premature beats
+164909002,9,CD,left back bundle branch block; left bundle branch block; left front bundle branch block
+251146004,9,excluded_other,lower voltage QRS in all lead
+233917008,8,CD,atrioventricular block
+164917005,6,excluded_other,abnormal Q wave
+251199005,6,excluded_other,countercolockwise rotation
+164931005,5,STTC,ST tilt up
+47665007,4,excluded_other,Axis right shift
+59931005,4,STTC,T wave opposite
+111975006,3,STTC,QT interval extension
+164865005,3,MI,Myocardial infgraction in the front wall; Myocardial infraction in the lower wall; Myocardial infraction in the side wall; myocardial infarction; myocardial infraction in back wall
+164912004,3,excluded_other,P wave Change
+164937009,2,excluded_other,U wave
+251180001,2,excluded_other,ventricular escape trigeminy
+164947007,1,CD,PR interval extension
+251173003,1,excluded_other,atrial bigeminy
+428417006,1,excluded_other,Early repolarization of the ventricles

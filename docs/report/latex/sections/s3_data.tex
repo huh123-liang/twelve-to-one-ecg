@@ -1,0 +1,59 @@
+\section{Data and Task Definitions}
+\label{sec:data}
+
+\subsection{PTB-XL}
+We used PTB-XL v1.0.3~\cite{wagner2020ptbxl}, a public collection of 21,799 ten-second, 12-lead resting ECGs from 18,869 patients, annotated by cardiologists with SCP-ECG statements. Following the reference implementation of Strodthoff et al.~\cite{strodthoff2021benchmark}, every diagnostic statement was mapped to one of five diagnostic superclasses---normal ECG (NORM), myocardial infarction (MI), ST/T change (STTC), conduction disturbance (CD) and hypertrophy (HYP)---regardless of its likelihood value; the 21,388 records with at least one superclass were kept. We used the 100\,Hz version (1,000 samples per lead), as in the PTB-XL benchmark; it keeps the waveform content needed for superclass diagnosis while keeping the full experiment grid of more than 100 training runs within the budget of one laptop GPU.
+
+We used the official stratified folds without modification: folds 1--8 for training (17,084 records), fold 9 for validation (2,146) and fold 10 for testing (2,158). The folds keep all records of a patient in one fold, so there is no patient-level leakage. Label prevalence is almost identical across splits (\cref{tab:data}). Signals were z-scored per lead with a mean and standard deviation estimated on the training fold only, and the same transform was applied to validation, test and external data.
+
+\subsection{Tasks}
+\textbf{T1 -- multi-label diagnosis.} Five sigmoid outputs, one per superclass; a record may carry several labels.
+
+\noindent\textbf{T2 -- normal-versus-abnormal triage.} One sigmoid output; a record is \emph{abnormal} if it carries any of MI, STTC, CD or HYP. T2 is the simpler question a wearable is most likely to be asked: does this person need a 12-lead ECG? T2 is not the complement of NORM: 51 test records are labelled NORM together with an abnormal superclass, and they count as abnormal in T2. For T1 models we also report a \emph{derived} triage score, $1-P(\text{NORM})$, evaluated against the same T2 label.
+
+\subsection{Lead configurations}
+Each model was trained and tested on one of six lead configurations chosen to span clinical and wearable devices (\cref{tab:leads}).
+
+\begin{table}[H]
+\centering
+\small
+\caption{Lead configurations.}
+\label{tab:leads}
+\begin{tabular}{lll}
+\toprule
+Configuration & Leads & Rationale \\
+\midrule
+12lead & all 12 & clinical reference \\
+limb6 & I, II, III, aVR, aVL, aVF & limb-only devices, six-lead patches \\
+chest6 & V1--V6 & precordial information without limb leads \\
+2lead (I + II) & I, II & two-electrode devices \\
+leadII & II & classic rhythm strip \\
+leadI & I & smartwatch-like single lead \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{External cohort}
+For external validation (E7) we used the Chapman-Shaoxing/Ningbo database~\cite{zheng2022physionet,zheng2020chapman} (45,152 ten-second 12-lead ECGs at 500\,Hz from two Chinese hospitals), whose diagnoses are SNOMED-CT codes. We mapped codes to the PTB-XL superclasses with a fixed table (``v2 mapping'') that follows the official equivalence list of the PhysioNet/CinC Challenge 2021~\cite{reyna2021willtwodo}; for example, complete right bundle branch block is treated as right bundle branch block. A record was \emph{normal} only if all its codes were sinus-rhythm codes (sinus rhythm, sinus bradycardia, sinus tachycardia, sinus arrhythmia), and \emph{abnormal} if at least one code mapped to MI, STTC, CD or HYP. Records with only unmapped findings (for example atrial fibrillation alone, axis deviation or ectopic beats) were excluded, because PTB-XL's diagnostic superclasses do not cover them. Signals were converted to millivolts, resampled to 100\,Hz with an anti-aliasing polyphase filter, cropped or zero-padded to 10\,s, and records with a flat or non-finite lead were excluded. Of 45,152 records, 34,815 were included (16,092 abnormal, 18,723 normal); 8,971 were excluded for unmapped diagnoses and 1,366 for signal problems (\cref{tab:data}). Two alternative mappings were analysed as sensitivity analyses (\cref{sec:res_triage}).
+
+\begin{table}[H]
+\centering
+\small
+\caption{Cohorts. PTB-XL label prevalence is multi-label (rows do not sum to 100\%). Chapman fractions use all scanned records.}
+\label{tab:data}
+\begin{tabular}{lrrrrrr}
+\toprule
+PTB-XL split & Records & NORM & MI & STTC & CD & HYP \\
+\midrule
+Train (folds 1--8) & 17,084 & 44.5\% & 25.6\% & 24.5\% & 22.9\% & 12.4\% \\
+Validation (fold 9) & 2,146 & 44.5\% & 25.2\% & 24.6\% & 23.1\% & 12.5\% \\
+Test (fold 10) & 2,158 & 44.6\% & 25.5\% & 24.1\% & 23.0\% & 12.1\% \\
+\midrule
+\multicolumn{7}{l}{\textbf{Chapman-Shaoxing/Ningbo (external, v2 mapping)}} \\
+\multicolumn{5}{l}{Scanned} & \multicolumn{2}{r}{45,152 (100\%)} \\
+\multicolumn{5}{l}{Excluded: no mappable diagnosis} & \multicolumn{2}{r}{8,971 (19.9\%)} \\
+\multicolumn{5}{l}{Excluded: flat lead / non-finite signal / unreadable header} & \multicolumn{2}{r}{1,290 / 75 / 1} \\
+\multicolumn{5}{l}{Included (abnormal / normal)} & \multicolumn{2}{r}{34,815 (16,092 / 18,723)} \\
+\bottomrule
+\end{tabular}
+\end{table}

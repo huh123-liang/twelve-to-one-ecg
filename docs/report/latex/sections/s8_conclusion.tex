@@ -1,0 +1,10 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+\textbf{RQ1.} On 12-lead PTB-XL, ResNet1d and CNN-BiLSTM performed equally well (macro AUROC 0.923 and 0.925) and better than ECG-ViT (0.915); all clearly outperformed a shift-invariant feature baseline (0.863), whereas a linear model on the raw signal failed (0.512).
+
+\textbf{RQ2.} Removing leads cost 0.024--0.033 AUROC for six- and two-lead configurations and 0.090 for lead I, with MI affected most. Under the pre-specified criterion, no diagnosis can be screened from lead I; ST/T change with the six chest leads was the only configuration--diagnosis pair that could replace the 12-lead ECG, consistently across five approaches. Supervised transfer did not recover the loss, while one lead-agnostic model served all six configurations at a small cost.
+
+\textbf{RQ3.} Single-lead triage reached AUROC 0.88 but only 0.71 sensitivity at 90\% specificity, short of a stand-alone screen. Severe noise changed which architecture was best on lead I; more labels helped lead-I models little, pointing to an information bottleneck; masked-signal pre-training improved a 10\%-label Transformer, most on lead I (+0.015). Frozen triage models kept their discrimination on 34,815 records from another hospital, but thresholds needed local calibration.
+
+Twelve to one is too far for diagnosis: a single wearable lead can support triage, but it cannot replace the 12-lead ECG for the five diagnostic superclasses studied here.

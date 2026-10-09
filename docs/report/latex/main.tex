@@ -1,0 +1,46 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\graphicspath{{figs/}}
+\setlist[itemize,enumerate]{nosep,leftmargin=*}
+\setlist[description]{nosep,leftmargin=3em,labelindent=0pt}
+\newcommand{\auroc}{AUROC}
+\newcommand{\sensninety}{sens@spec90}
+
+\title{\textbf{Twelve to One: Lead-Robust Deep Learning for Multi-label ECG Diagnosis and Wearable Triage on PTB-XL}}
+\author{[Author names, Matric No.]\\[2pt] \small BS6204 Deep Learning for Biomedical Science, Nanyang Technological University}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\input{sections/abstract}
+\input{sections/s1_intro}
+\input{sections/s2_related}
+\input{sections/s3_data}
+\input{sections/s4_methods}
+\input{sections/s5_evaluation}
+\input{sections/s6_results}
+\input{sections/s7_discussion}
+\input{sections/s8_conclusion}
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+\clearpage
+\appendix
+\input{sections/appendix}
+
+\end{document}

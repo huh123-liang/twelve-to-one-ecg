@@ -1,0 +1,53 @@
+{
+  "macro_auroc": 0.9394888203655205,
+  "macro_auprc": 0.9605530735901839,
+  "macro_f1": 0.8814102564102564,
+  "macro_sens_at_spec90": 0.8250401284109149,
+  "ece": 0.045045107026499,
+  "ece_temp_scaled": 0.032306889822987954,
+  "brier": 0.10060204565525055,
+  "temperature": 1.2652086999385919,
+  "thresholds": [
+    0.33999999999999997
+  ],
+  "per_class": {
+    "ABNORMAL": {
+      "auroc": 0.9394888203655205,
+      "auprc": 0.9605530735901839,
+      "f1": 0.8814102564102564,
+      "sens_at_spec90": 0.8250401284109149,
+      "tp": 1100,
+      "fp": 150,
+      "fn": 146,
+      "tn": 762,
+      "sensitivity": 0.8828250401284109,
+      "specificity": 0.8355263157894737,
+      "ppv": 0.88,
+      "npv": 0.8392070484581498
+    }
+  },
+  "macro_auroc_ci95": [
+    0.9302634010043858,
+    0.9484694964037871
+  ],
+  "run": "laresnet_12lead_t2_frac1_seed1",
+  "model": "laresnet",
+  "variant": "laresnet",
+  "strategy": "S3_lead_agnostic",
+  "task": "t2",
+  "leads": "12lead",
+  "seed": 1,
+  "train_fraction": 1.0,
+  "n_train": 17084,
+  "n_params": 4093825,
+  "best_val_macro_auroc": 0.914533986709862,
+  "epochs_run": 44,
+  "train_time_s": 472.98473930358887,
+  "checkpoint_run": "laresnet_all_t2_frac1_seed1",
+  "noise_robustness": {
+    "20dB": 0.9393453788966799,
+    "10dB": 0.937243917377714,
+    "5dB": 0.9332574765565599,
+    "0dB": 0.917544035650925
+  }
+}

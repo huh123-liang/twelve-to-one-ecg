@@ -1,0 +1,9 @@
+task,approach,n_lead_sets,val_mean_macro_auroc_reduced
+t1,bilstm [S1_scratch],5,0.8866407434124509
+t1,resnet1d [S1_scratch],5,0.8865311448266413
+t1,resnet1d-tfft [S2_transfer_finetune],5,0.8850535226235218
+t1,laresnet [S3_lead_agnostic],5,0.8792274787058588
+t1,vit [S1_scratch],5,0.877944130272646
+t1,resnet1d-tffrz [S2_transfer_frozen],1,0.8334646498373963
+t2,laresnet [S3_lead_agnostic],5,0.9112831779817556
+t2,resnet1d [S1_scratch],1,0.8828229347239194

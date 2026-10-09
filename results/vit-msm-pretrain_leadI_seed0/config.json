@@ -1,0 +1,16 @@
+{
+  "model": "vit-msm-pretrain",
+  "leads": "leadI",
+  "seed": 0,
+  "labels_used": false,
+  "mask_ratio": 0.15,
+  "cache": "data/cache",
+  "sr": 100,
+  "train_folds": "1-8",
+  "validation_fold": 9,
+  "epochs_max": 100,
+  "batch": 32,
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "patience": 10
+}
